@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Finanças Pessoais</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <h1>Meu Financeiro</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#overview"><i class="fas fa-home"></i> Visão Geral</a></li>
+                    <li><a href="#transactions"><i class="fas fa-exchange-alt"></i> Transações</a></li>
+                    <li><a href="#reports"><i class="fas fa-chart-pie"></i> Relatórios</a></li>
+                    <li><a href="#settings"><i class="fas fa-cog"></i> Configurações</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <span>Olá, Usuário!</span>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="container dashboard-grid">
+
+        <section id="overview" class="card summary-card balance-card">
+            <h3>Saldo Atual</h3>
+            <p class="balance-value">R$ 5.420,50</p>
+            <div class="balance-change">
+                <i class="fas fa-arrow-up"></i>
+                <span>+R$ 350,20 este mês</span>
+            </div>
+        </section>
+
+        <section class="card summary-card income-card">
+            <h3>Receitas do Mês</h3>
+            <p class="income-value">R$ 3.500,00</p>
+            <div class="income-breakdown">
+                <p>Salário: R$ 2.800,00</p>
+                <p>Freelance: R$ 700,00</p>
+            </div>
+        </section>
+
+        <section class="card summary-card expense-card">
+            <h3>Despesas do Mês</h3>
+            <p class="expense-value">R$ 2.079,50</p>
+            <div class="expense-breakdown">
+                <p>Moradia: R$ 1.000,00</p>
+                <p>Alimentação: R$ 500,00</p>
+                <p>Transporte: R$ 200,00</p>
+                <p>Outros: R$ 379,50</p>
+            </div>
+        </section>
+
+        <section id="transactions" class="card transaction-form-card">
+            <h2>Registrar Nova Transação</h2>
+            <form class="transaction-form">
+                <div class="form-group">
+                    <label for="description">Descrição:</label>
+                    <input type="text" id="description" placeholder="Ex: Aluguel, Supermercado, Salário..." required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Valor:</label>
+                    <input type="number" id="amount" step="0.01" placeholder="R$ 0.00" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Tipo:</label>
+                    <select id="type" required>
+                        <option value="expense">Despesa</option>
+                        <option value="income">Receita</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="category">Categoria:</label>
+                    <input type="text" id="category" placeholder="Ex: Moradia, Alimentação, Salário..." required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Data:</label>
+                    <input type="date" id="date" value="2025-06-12" required>
+                </div>
+                <button type="submit" class="btn primary-btn">Registrar Transação</button>
+            </form>
+        </section>
+
+        <section class="card recent-transactions-card">
+            <h2>Últimas Transações</h2>
+            <ul class="transaction-list">
+                <li class="transaction-item expense">
+                    <div class="transaction-details">
+                        <span class="description">Aluguel</span>
+                        <span class="category">Moradia</span>
+                    </div>
+                    <span class="amount">- R$ 1.000,00</span>
+                    <span class="date">10/06/2025</span>
+                </li>
+                <li class="transaction-item income">
+                    <div class="transaction-details">
+                        <span class="description">Salário Junho</span>
+                        <span class="category">Receita</span>
+                    </div>
+                    <span class="amount">+ R$ 2.800,00</span>
+                    <span class="date">05/06/2025</span>
+                </li>
+                <li class="transaction-item expense">
+                    <div class="transaction-details">
+                        <span class="description">Supermercado</span>
+                        <span class="category">Alimentação</span>
+                    </div>
+                    <span class="amount">- R$ 150,00</span>
+                    <span class="date">03/06/2025</span>
+                </li>
+                <li class="transaction-item expense">
+                    <div class="transaction-details">
+                        <span class="description">Transporte Uber</span>
+                        <span class="category">Transporte</span>
+                    </div>
+                    <span class="amount">- R$ 45,00</span>
+                    <span class="date">02/06/2025</span>
+                </li>
+                <li class="transaction-item income">
+                    <div class="transaction-details">
+                        <span class="description">Serviço Freelance</span>
+                        <span class="category">Receita</span>
+                    </div>
+                    <span class="amount">+ R$ 700,00</span>
+                    <span class="date">01/06/2025</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="reports" class="card charts-card">
+            <h2>Gráficos de Gastos</h2>
+            <div class="chart-container">
+                <div class="chart-placeholder pie-chart">
+                    <span>Gráfico de Gastos por Categoria (Pizza)</span>
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-placeholder bar-chart">
+                    <span>Gráfico de Receitas vs. Despesas (Barras)</span>
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Meu Financeiro. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
